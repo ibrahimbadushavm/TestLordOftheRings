@@ -151,4 +151,12 @@ class DataServiceTest {
                 "Accessing the 20th element should throw IndexOutOfBoundsException");
     }
 
+    @Test
+    void TestLongRunnningMethod_CheckTimeout() {
+        // TODO write a test to check that the long running method completes within 3000 milliseconds
+        assertTimeoutPreemptively(java.time.Duration.ofMillis(3000), () -> {
+            dataService.update();
+        }, "The long running method should complete within 3000 milliseconds");
+    }
+
 }
