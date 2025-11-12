@@ -12,6 +12,9 @@ public class TolkienCharacter {
     private long notAccessibleField = System.currentTimeMillis();
 
     public TolkienCharacter(String name, int age, Race race) {
+        if(age<0){
+            throw new IllegalArgumentException("Age is not allowed to be smaller than zero");
+        }
         this.name = name;
         this.age = age;
         this.race = race;
