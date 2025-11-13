@@ -87,7 +87,8 @@ public class DataService {
 
     public TolkienCharacter getFellowshipCharacter(String name) {
         List<TolkienCharacter> list = getFellowship();
-        return list.stream().filter(s-> s.equals(name)).findFirst().orElse(null);
+        String test= list.stream().filter(s-> s.getName().equalsIgnoreCase(name)).findFirst().get().getName();
+        return list.stream().filter(s-> s.getName().equalsIgnoreCase(name)).findFirst().get();
     }
 
     public Map<Ring, TolkienCharacter> getRingBearers() {
